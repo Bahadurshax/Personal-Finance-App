@@ -1,0 +1,39 @@
+#sidebar {
+  background-color: #2C3E50;
+}
+
+.logo {
+  display: block;
+  margin-inline-start: 2rem;
+  margin-block: 2rem;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  padding-inline-end: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding-block: 10px;
+  padding-inline-start: 2rem;
+  width: 100%;
+  text-align: left;
+  border-radius: 0 12px 12px 0;
+}
+
+.nav-btn > svg {
+  fill: #fff;
+  width: 25px;
+  aspect-ratio: 1;
+  vertical-align: middle;
+  margin-inline-end: .75rem;
+}

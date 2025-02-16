@@ -1,0 +1,28 @@
+.card {
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 6px 6px 8px hsl(0, 0%, 90%), -6px -6px 8px hsl(0, 0%, 90%);
+}
+
+.card.dark {
+  background-color: #001529;
+  color: #fff;
+}
+
+.card.light {
+  background-color: #fff;
+  color: #001529;
+}
+
+.card-header {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}
+
+.txt-size-xl {
+  font-size: x-large;
+}

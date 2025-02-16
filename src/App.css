@@ -8,17 +8,17 @@ html {
 }
 
 body {
-  margin: 0;
   font-family: "Roboto", serif;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 20rem 1fr;
-  height: 100vh;
+  display: flex;
+  min-height: 100vh;
+  gap: 0;
 }
 
 main {
+  flex-basis: 100%;
   background-color: #ECF0F1;
   padding: 2rem;
 }

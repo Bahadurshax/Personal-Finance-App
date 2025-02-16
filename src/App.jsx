@@ -8,7 +8,7 @@ import BillsPage from './pages/Bills/BillsPage'
 import './App.css'
 
 function App() {
-  const [page, setPage] = useState('budgets')
+  const [page, setPage] = useState('overview')
 
   const content = {
     overview: <OverviewPage/>,
@@ -18,9 +18,15 @@ function App() {
     bills: <BillsPage/>
   }
 
+  /** TODO:
+   * Each tab panel needs to have aria-labelledby attribute
+   * All of the tabpanel elements have tabindex="0" to make them tabbable
+   * Each tab panel except the active one has the 'hidden' attribute
+  */
+
   return (
     <div className='container'>
-      <Sidebar />
+      <Sidebar onPageChange={setPage}/>
       <main>
         { content[page] }
       </main>

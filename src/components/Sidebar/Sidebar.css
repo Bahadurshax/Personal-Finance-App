@@ -1,30 +1,89 @@
 #sidebar {
+  position: sticky;
+  top: 0;
+  max-height: 100svh;
+  width: 20rem;
+  flex-shrink: 0;
   background-color: #2C3E50;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #sidebar {
+    transition: width 400ms ease;
+  }
+
+  #sidebar:has([aria-expanded="true"]) .nav-btn > span {
+    transition: opacity 400ms ease 400ms, transform 400ms ease 400ms;
+  }
+}
+
+#sidebar:has([aria-expanded="false"]) {
+  width: calc(4rem + 25px);
+}
+
+#sidebar:has([aria-expanded="false"]) .nav-list {
+  padding-right: 1rem;
+}
+
+#sidebar:has([aria-expanded="true"]) .nav-btn > span {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#sidebar:has([aria-expanded="false"]) .nav-btn > span {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  transform: translateX(-35px);
 }
 
 .logo {
   display: block;
   margin-inline-start: 2rem;
-  margin-block: 2rem;
+  margin-block: 2rem 4rem;
+}
+
+.logo > img {
+  width: 25px;
+  aspect-ratio: 1;
+}
+
+#collapse-btn {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border: 0;
+  padding: 15px 10px;
+  cursor: pointer;
+  background-color: #22303d;
+}
+
+#collapse-btn > svg {
+  fill: #fff;
+  transform: scale(1.6);
 }
 
 .nav-list {
   list-style: none;
   padding: 0;
-  padding-inline-end: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding-right: 2rem;
 }
 
 .nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   border: 0;
   background-color: transparent;
   color: #fff;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   padding-block: 10px;
-  padding-inline-start: 2rem;
+  padding-left: 2rem;
   width: 100%;
   text-align: left;
   border-radius: 0 12px 12px 0;
@@ -33,7 +92,25 @@
 .nav-btn > svg {
   fill: #fff;
   width: 25px;
+  flex-shrink: 0;
   aspect-ratio: 1;
-  vertical-align: middle;
-  margin-inline-end: .75rem;
+}
+
+.nav-btn > span {
+  white-space: nowrap;
+}
+
+
+.nav-btn[aria-selected="true"] {
+  background-color: #fff;
+  color: #2C3E50;
+}
+.nav-btn[aria-selected="true"]:focus-visible {
+  outline-offset: 4px;
+  outline-color: #fff;
+  outline-width: 2px;
+  outline-style: dashed;
+}
+.nav-btn[aria-selected="true"] > svg {
+  fill: #2C3E50;
 }

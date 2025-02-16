@@ -1,0 +1,28 @@
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  outline: 2px solid green;
+}
+
+@media (width <= 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #expenses {
+    grid-column: span 2;
+  }
+
+  #transactions {
+    grid-row: 4 / 5;
+  }
+}
+
+#pots, #transactions {
+  grid-column: span 2;
+}

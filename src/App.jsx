@@ -5,9 +5,11 @@ import TransactionsPage from './pages/Transactions/TransactionsPage'
 import BudgetsPage from './pages/Budgets/BudgetsPage'
 import PotsPage from './pages/Pots/PotsPage'
 import BillsPage from './pages/Bills/BillsPage'
+import { useFinanceData } from './context/FinanceContext'
 import './App.css'
 
 function App() {
+  const { loaded } = useFinanceData()
   const [page, setPage] = useState('overview')
 
   const content = {
@@ -28,7 +30,7 @@ function App() {
     <div className='container'>
       <Sidebar onPageChange={setPage}/>
       <main>
-        { content[page] }
+        { loaded ? (content[page]) : <h1>Loading...</h1> }
       </main>
     </div>
   )

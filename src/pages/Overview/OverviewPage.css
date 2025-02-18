@@ -6,7 +6,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  outline: 2px solid green;
 }
 
 @media (width <= 1024px) {
@@ -25,4 +24,50 @@
 
 #pots, #transactions {
   grid-column: span 2;
+}
+
+.card-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-left: 0;
+  max-height: 10rem;
+  overflow-y: scroll;
+}
+
+.card-list > li {
+  padding-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.block {
+  flex-grow: 1;
+  flex-basis: 150px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  align-content: center;
+}
+
+.block > svg {
+  transform: scale(1.6);
+  margin: 0.5rem 0;
+}
+
+
+.chart-container {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  outline: 2px solid pink;
+  height: 150px;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.chart-container > li {
+  width: 50px;
+  background-color: blue;
 }

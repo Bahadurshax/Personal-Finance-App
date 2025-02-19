@@ -6,12 +6,6 @@ import './OverviewPage.css'
 export default function OverviewPage() {
   const { data } = useFinanceData()
   
-  const budgetData = data.budgets.map(b => ({
-    name: b.category,
-    value: b.maximum,
-    color: b.theme
-  }))
-  
   return (
 		<div
 			id='overview'
@@ -84,7 +78,7 @@ export default function OverviewPage() {
 								return (
 									<li
 										style={{ borderLeft: `4px solid ${pot.theme}` }}
-										key={`pot-${pot.id}`}
+										key={pot.id}
 									>
 										{pot.name}: <b>${pot.total}</b>
 									</li>
@@ -104,24 +98,25 @@ export default function OverviewPage() {
 						>
 							<PieChart>
 								<Pie
-									dataKey='value'
+                  dataKey='maximum'
+                  nameKey='category'
 									startAngle={0}
 									endAngle={360}
-									data={budgetData}
+									data={data.budgets}
 									cx='50%'
 									cy='50%'
 									outerRadius='50%'
-									fill='#2C3E50'
-									label
+                  fill='#2C3E50'
+                  label
 								>
-									{budgetData.map((budget, index) => (
+									{data.budgets.map((budget, idx) => (
 										<Cell
-											key={`cell-${index}`}
-											fill={budget.color}
+											key={idx}
+											fill={budget.theme}
 										/>
 									))}
-								</Pie>
-								<Tooltip />
+                </Pie>
+                <Tooltip/>
 								<Legend
 									verticalAlign='top'
 									height={36}
@@ -158,7 +153,7 @@ export default function OverviewPage() {
             <tbody>
               {data.transactions.slice(0, 5).map((transaction, idx) => {
                 return (
-                  <tr key={`transaction${idx}`}>
+                  <tr key={idx}>
                     <td>{transaction.name}</td>
                     <td>{transaction.category}</td>
                     <td>${transaction.amount}</td>

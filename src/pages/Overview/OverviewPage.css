@@ -3,14 +3,11 @@ ul, ol {
   padding: 0;
 }
 
-.section-title {
-  margin-bottom: 2rem;
-}
-
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  margin: 2rem 0;
 }
 
 @media (width <= 1024px) {

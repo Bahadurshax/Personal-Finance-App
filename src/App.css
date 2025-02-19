@@ -11,6 +11,24 @@ body {
   font-family: "Roboto", serif;
 }
 
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bg-light-gray {
+  background-color: #fafafa;
+}
+
+.txt-size-xl {
+  font-size: x-large;
+}
+
+.txt-gray {
+  color: #00152999;
+}
+
 .container {
   display: flex;
   min-height: 100vh;

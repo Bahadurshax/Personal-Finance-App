@@ -1,43 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState } from "react"
+import Transaction from "./TransactionsFolder/Transaction"
+import { useFinanceData } from '../../context/FinanceContext'
 
-import Transaction from "../../components/TransactionsFolder/Transaction";
-import Data from "../../../public/data/data.json";
+export default function TransactionsPage() {
+  
+  const { data } = useFinanceData()
+  const [searchQuery, setSearchQuery] = useState("")
+  const [sortType, setSortType] = useState("Latest")
+  const [selectedCategory, setSelectedCategory] = useState("All Transactions")
 
-const TransactionsPage = () => {
-
-  const [transactions, setTransactions] = useState(Data.transactions);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortType, setSortType] = useState("Latest");
-  const [selectedCategory, setSelectedCategory] = useState("All Transactions");
-
-  const filteredTransactions = transactions.filter((transaction) => {
+  const filteredTransactions = data.transactions.filter((transaction) => {
     const matchesCategory =
       selectedCategory === "All Transactions" ||
-      transaction.category === selectedCategory;
+      transaction.category === selectedCategory
     const matchesSearch = transaction.name
       .toLowerCase()
-      .includes(searchQuery.toLowerCase());
+      .includes(searchQuery.toLowerCase())
 
-    return matchesCategory && matchesSearch;
-  });
+    return matchesCategory && matchesSearch
+  })
 
   // Sort logic
   const sortedTransactions = [...filteredTransactions].sort((a, b) => {
     if (sortType === "Latest") {
-      return new Date(b.date) - new Date(a.date);
+      return new Date(b.date) - new Date(a.date)
     } else if (sortType === "Oldest") {
-      return new Date(a.date) - new Date(b.date);
+      return new Date(a.date) - new Date(b.date)
     } else if (sortType === "A to Z") {
-      return a.name.localeCompare(b.name);
+      return a.name.localeCompare(b.name)
     } else if (sortType === "Z to A") {
-      return b.name.localeCompare(a.name);
+      return b.name.localeCompare(a.name)
     } else if (sortType === "Highest") {
       return b.amount - a.amount;
     } else if (sortType === "Lowest") {
       return a.amount - b.amount;
     }
     return 0;
-  });
+  })
 
   const transactionRows = sortedTransactions.map((transaction, index) => (
     <tr key={index}>
@@ -64,7 +63,7 @@ const TransactionsPage = () => {
           : `- $${Math.abs(transaction.amount).toFixed(2)}`}
       </td>
     </tr>
-  ));
+  ))
 
   return (
     <div className="transaction-page">
@@ -99,7 +98,5 @@ const TransactionsPage = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-export default TransactionsPage;
+  )
+}

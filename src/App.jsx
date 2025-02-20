@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
   const { loaded } = useFinanceData()
-  const [page, setPage] = useState('budgets')
+  const [page, setPage] = useState('overview')
 
   const content = {
     overview: <OverviewPage/>,

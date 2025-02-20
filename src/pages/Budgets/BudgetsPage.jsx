@@ -1,16 +1,19 @@
+import { useState } from 'react'
 import Button from '../../components/Button/Button'
 import Card from '../../components/Card/Card'
 import List from '../../components/List/List'
 import Label from '../../components/Label/Label'
+import Modal from '../../components/Modal/Modal'
 import { useFinanceData } from '../../context/FinanceContext'
 import { PieChart, Pie, Legend, Cell } from 'recharts'
 import './BudgetsPage.css'
 
 export default function BudgetsPage() {
   const { data } = useFinanceData()
+  const [showModal, setShowModal] = useState(false)
 
-  const clickHandler = event => {
-    console.log('btn click')
+  const addBudgetHandler = event => {
+    console.log('Add btn')
   }
 
   return (
@@ -22,7 +25,7 @@ export default function BudgetsPage() {
     >
       <div className="d-flex">
         <h2 className="section-title">Budgets</h2>
-        <Button onClick={clickHandler} type='primary'>Add New Budget</Button>
+        <Button onClick={() => setShowModal(true)} type='primary'>Add New Budget</Button>
       </div>
 
       <div id='budgets-container'>
@@ -68,6 +71,12 @@ export default function BudgetsPage() {
           ))}
         </div>
       </div>
+
+      <Modal open={showModal}  width={500} title='New Budget' onClose={() => setShowModal(false)}>
+        <input className='input' type="text" name='category' placeholder='Category' />
+        <input className='input' type="text" inputMode='numeric' placeholder='Amount' />
+        <Button onClick={addBudgetHandler} style={{width: '100%', marginTop: '1rem'}}>Add</Button>
+      </Modal>
     </div>
   )
 }

@@ -1,0 +1,27 @@
+#pots-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+[role="meter"] {
+  height: 20px;
+  width: 100%;
+  border: 2px solid #eee;
+  border-radius: 100vw;
+  position: relative;
+}
+
+.fill {
+  --fill-percentage: 50%;
+
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, #1a3856b2, #22303d var(--fill-percentage), transparent var(--fill-percentage));
+  background-size: 100% 100%;
+  border-radius: 100vw;
+  text-align: center;
+  color: #bcbcbc;
+}

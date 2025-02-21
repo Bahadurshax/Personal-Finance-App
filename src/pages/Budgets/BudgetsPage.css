@@ -13,20 +13,3 @@
 #cards > * {
   margin-bottom: 2rem;
 }
-
-/* .modal-window {
-  position: absolute;
-  background-color: #fff;
-  inset: 0;
-  margin-inline: auto;
-  width: 600px;
-  height: fit-content;
-  padding: 2rem;
-  transform: translateY(-100%);
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-} */

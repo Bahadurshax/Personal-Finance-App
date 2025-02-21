@@ -4,16 +4,23 @@ import Card from '../../components/Card/Card'
 import List from '../../components/List/List'
 import Label from '../../components/Label/Label'
 import Modal from '../../components/Modal/Modal'
+import { getRandomHexColor } from '../../utils'
 import { useFinanceData } from '../../context/FinanceContext'
 import { PieChart, Pie, Legend, Cell } from 'recharts'
 import './BudgetsPage.css'
 
 export default function BudgetsPage() {
-  const { data } = useFinanceData()
+  const { data, setData } = useFinanceData()
   const [showModal, setShowModal] = useState(false)
+  const [newBudget, setNewBudget] = useState({
+    category: '',
+    maximum: 0,
+  })
 
-  const addBudgetHandler = event => {
-    console.log('Add btn')
+  const addBudgetHandler = () => {
+    newBudget.theme = getRandomHexColor()
+    setData(prev => ({ ...prev, budgets: prev.budgets.concat(newBudget) }))
+    setNewBudget({ category: '', maximum: 0 })
   }
 
   return (
@@ -72,10 +79,39 @@ export default function BudgetsPage() {
         </div>
       </div>
 
-      <Modal open={showModal}  width={500} title='New Budget' onClose={() => setShowModal(false)}>
-        <input className='input' type="text" name='category' placeholder='Category' />
-        <input className='input' type="text" inputMode='numeric' placeholder='Amount' />
-        <Button onClick={addBudgetHandler} style={{width: '100%', marginTop: '1rem'}}>Add</Button>
+      <Modal
+        open={showModal}
+        width={500}
+        title='New Budget'
+        onClose={() => setShowModal(false)}
+        footerButtons={[
+          { text: 'Add', handler: addBudgetHandler, style: {width: '100%'} }
+        ]}
+      >
+        <input
+          className='input'
+          type="text"
+          name='category'
+          placeholder='Category'
+          required
+          value={newBudget.category}
+          onChange={(e) => {
+            setNewBudget(prev => ({...prev, category: e.target.value}))
+          }}
+        />
+        <input
+          className='input'
+          type="text"
+          name='maximum'
+          inputMode='numeric'
+          placeholder='Amount'
+          required
+          min={0}
+          value={newBudget.maximum}
+          onInput={(e) => {
+            setNewBudget(prev => ({ ...prev, maximum: +e.target.value }))
+          }}
+        />
       </Modal>
     </div>
   )

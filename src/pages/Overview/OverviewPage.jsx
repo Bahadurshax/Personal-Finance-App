@@ -138,7 +138,7 @@ export default function OverviewPage() {
           }, 0)}</b></p>
 				</Card>
 				<Card
-					id='transactions'
+					id='transactions-container'
 					title='Transactions'
 				>
           <table>

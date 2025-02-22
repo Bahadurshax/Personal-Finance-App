@@ -16,7 +16,7 @@
 
 .fill {
   --fill-percentage: 50%;
-
+  width: 0%;
   position: absolute;
   inset: 0;
   background-image: linear-gradient(90deg, #1a3856b2, #22303d var(--fill-percentage), transparent var(--fill-percentage));
@@ -24,4 +24,14 @@
   border-radius: 100vw;
   text-align: center;
   color: #bcbcbc;
+  animation: fillLine 1s ease forwards;
+}
+
+@keyframes fillLine {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }

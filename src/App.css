@@ -37,6 +37,24 @@ body {
   border: 1px solid #ccc;
 }
 
+.input:has(+ label) {
+  margin-block-end: 1rem;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
 .container {
   display: flex;
   min-height: 100vh;

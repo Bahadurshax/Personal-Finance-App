@@ -44,7 +44,7 @@ ul, ol {
   grid-row: span 2;
 }
 
-#transactions {
+#transactions-container {
   grid-column: span 3;
 }
 

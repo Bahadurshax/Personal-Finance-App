@@ -6,6 +6,9 @@ import "./PotsPage.css"
 export default function PotsPage() {
   const { data } = useFinanceData()
 
+  console.log('Test log');
+  
+
   return (
 		<div
 			id='pots'

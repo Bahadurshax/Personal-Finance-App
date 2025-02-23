@@ -11,8 +11,13 @@ export default function TransactionForm({ onSubmit, operation, pot: {id, total, 
     e.preventDefault()
     setErrorMessage(null)
 
-    if ((transactionAmount + total) > target) {
+    if (operation.toLowerCase() === 'add' && (transactionAmount + total) > target) {
       setErrorMessage('Amount must be less than the target amount')
+      return
+    }
+
+    if (operation.toLowerCase() === 'withdraw' && total - transactionAmount < 0) {
+      setErrorMessage(`You can't withdraw more than $${total}`)
       return
     }
     
@@ -40,7 +45,7 @@ export default function TransactionForm({ onSubmit, operation, pot: {id, total, 
         required={true}
         onChange={e => setTransactionAmount(e.target.value ? Number(e.target.value) : '')}
       />
-      <span className="error-message">{errorMessage}</span>
+       {errorMessage && <span className="error-message">{errorMessage}</span>}
       <Button inputType='submit' style={{ width: '100%', marginTop: '1rem' }}>{operation}</Button>
     </form>
   )

@@ -83,6 +83,10 @@ export default function Sidebar({ onPageChange }) {
 					alt='Finance logo'
 				/>
       </a>
+
+      <button onClick={toggleSidebar} id='sidebar-toggle' aria-label='Toggle the sidebar' aria-expanded={isExpanded}>
+        {isExpanded ? <IconChevronLeft/> : <IconChevronRight/>}
+      </button>
       
 			<ul
 				className='nav-list'
@@ -159,9 +163,6 @@ export default function Sidebar({ onPageChange }) {
 					</button>
 				</li>
       </ul>
-      <button onClick={toggleSidebar} id='sidebar-toggle' aria-label='Toggle the sidebar' aria-expanded={isExpanded}>
-        {isExpanded ? <IconChevronLeft/> : <IconChevronRight/>}
-      </button>
       <div id='focus-hint' hidden>Press tab to move to the tab content</div>
 		</nav>
 	)

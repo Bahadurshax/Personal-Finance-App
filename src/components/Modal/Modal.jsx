@@ -8,15 +8,19 @@ export default function Modal({ open, title, width = 400, onClose, footerButtons
   const [isClosing, setIsClosing] = useState(false)
 
   useEffect(() => {
+    let timerID
+
     if (open) {
-      modalRef?.current.showModal()
+      modalRef.current.showModal()
     } else {
       setIsClosing(true)
-      setTimeout(() => {
-        modalRef?.current.close()
+      timerID = setTimeout(() => {
+        modalRef.current.close()
         setIsClosing(false)
       }, 400)
     }
+
+    return () => clearTimeout(timerID)
   }, [open])
 
   const FooterButtons = ({ buttons }) => (

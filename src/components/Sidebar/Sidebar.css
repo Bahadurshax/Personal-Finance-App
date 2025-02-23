@@ -57,6 +57,7 @@
   padding: 15px 10px;
   cursor: pointer;
   background-color: #22303d;
+  order: 1;
 }
 
 #sidebar-toggle > svg {

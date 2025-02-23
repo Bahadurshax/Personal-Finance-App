@@ -49,6 +49,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
+  -webkit-appearance: textfield;
 }
 
 .error-message {
@@ -61,8 +63,104 @@ input[type="number"] {
   gap: 0;
 }
 
+
+@media (max-width: 60em) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  #sidebar {
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+    z-index: 100;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    padding: 0;
+    gap: 0;
+    flex-shrink: 1;
+  }
+
+  .nav-btn {
+    padding-inline: 5vw;
+    border-radius: 12px;
+  }
+
+  #sidebar-toggle, .logo, .nav-btn > span {
+    display: none;
+  }
+}
+
+
 main {
   flex-basis: 100%;
   background-color: #ECF0F1;
   padding: 2rem;
+}
+
+
+
+
+
+
+
+
+/* Table desing for mobile screen sizes */
+@media (max-width: 600px) {
+  td {
+    display: grid;
+    grid-template-columns: 15ch 1fr;
+    border: 0;
+  }
+
+  tr:nth-child(2n) {
+    background-color: hsla(0, 0%, 93%, 0.4);
+  }
+
+  td::before {
+    content: attr(data-cell);
+  }
+
+  th {
+    display: none;
+  }
+}
+
+
+/* Table desing for desktop screen sizes */
+table {
+  width: 100%;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+  padding: 1rem;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+tr:hover {
+  background-color: #fafafa;
+}
+
+table tr:first-child th {
+  background-color: #eee;
+}
+
+table tr:first-child th:first-child {
+  border-start-start-radius: 12px;
+}
+
+table tr:last-child th:last-child {
+  border-start-end-radius: 12px;
 }

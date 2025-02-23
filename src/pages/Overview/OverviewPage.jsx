@@ -154,10 +154,10 @@ export default function OverviewPage() {
               {data.transactions.slice(0, 5).map((transaction, idx) => {
                 return (
                   <tr key={idx}>
-                    <td>{transaction.name}</td>
-                    <td>{transaction.category}</td>
-                    <td>${transaction.amount}</td>
-                    <td>{new Date(transaction.date).toLocaleDateString()}</td>
+                    <td data-cell='Name'>{transaction.name}</td>
+                    <td data-cell='Category'>{transaction.category}</td>
+                    <td data-cell='Amount'>${transaction.amount}</td>
+                    <td data-cell='Date'>{new Date(transaction.date).toLocaleDateString()}</td>
                   </tr>
                 )
               })}

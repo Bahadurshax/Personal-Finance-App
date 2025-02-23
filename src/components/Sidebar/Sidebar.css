@@ -5,6 +5,9 @@
   width: 20rem;
   flex-shrink: 0;
   background-color: #2C3E50;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,8 +42,7 @@
 
 .logo {
   display: block;
-  margin-inline-start: 2rem;
-  margin-block: 2rem 4rem;
+  margin: 2rem;
 }
 
 .logo > img {
@@ -48,17 +50,16 @@
   aspect-ratio: 1;
 }
 
-#collapse-btn {
-  position: absolute;
+#sidebar-toggle {
+  margin-top: auto;
   width: 100%;
-  bottom: 0;
   border: 0;
   padding: 15px 10px;
   cursor: pointer;
   background-color: #22303d;
 }
 
-#collapse-btn > svg {
+#sidebar-toggle > svg {
   fill: #fff;
   transform: scale(1.6);
 }

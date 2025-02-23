@@ -9,11 +9,11 @@ export default function Modal({ open, title, width = 400, onClose, footerButtons
 
   useEffect(() => {
     if (open) {
-      modalRef.current.showModal()
+      modalRef?.current.showModal()
     } else {
       setIsClosing(true)
       setTimeout(() => {
-        modalRef.current.close()
+        modalRef?.current.close()
         setIsClosing(false)
       }, 400)
     }

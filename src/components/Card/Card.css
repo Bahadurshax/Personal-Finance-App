@@ -15,6 +15,9 @@
 }
 
 .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 2px solid #ccc;
   margin-bottom: 1rem;
 }

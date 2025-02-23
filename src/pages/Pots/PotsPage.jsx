@@ -59,9 +59,9 @@ export default function PotsPage() {
             >
               <span style={{ "--fill-percentage": `${(pot.total * 100) / pot.target}%` }} className="fill">{ ((pot.total * 100) / pot.target).toFixed(0)}%</span>
             </div>
-            <div className="d-flex" style={{gap: '1rem'}}>
+            <div className="d-flex button-group">
               <Button
-                style={{ width: '100%' }}
+                
                 onClick={() => {
                   setModalTitle(`Add to ${pot.name}`)
                   setModalContent(<TransactionForm pot={pot} operation='Add' onSubmit={closeModal}/>)
@@ -71,7 +71,7 @@ export default function PotsPage() {
                 Add money
               </Button>
               <Button
-                style={{ width: '100%' }}
+                
                 type="secondary"
                 onClick={() => {
                   setModalTitle(`Withdraw from ${pot.name}`)

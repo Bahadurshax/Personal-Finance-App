@@ -54,11 +54,23 @@ export default function Sidebar({ onPageChange }) {
     }
   }
 
-  const collapseSidebar = event => {
-    const btn = event.target.closest('#collapse-btn')
+  const toggleSidebar = event => {
+    const btn = event.target.closest('#sidebar-toggle')
     if (!btn) return
     setIsExpanded(prev => !prev)
   }
+
+  const IconChevronLeft = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="bi bi-chevron-left" viewBox="0 0 16 16">
+      <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+    </svg>
+  )
+
+  const IconChevronRight = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+      <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+    </svg>
+  )
 
 	return (
 		<nav id='sidebar'>
@@ -71,15 +83,6 @@ export default function Sidebar({ onPageChange }) {
 					alt='Finance logo'
 				/>
       </a>
-
-      <button onClick={collapseSidebar} id='collapse-btn' aria-label='Collapse the sidebar' aria-expanded={isExpanded}>
-        {isExpanded ? 
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="bi bi-chevron-left" viewBox="0 0 16 16">
-            <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-          </svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                   </svg>}
-      </button>
       
 			<ul
 				className='nav-list'
@@ -156,6 +159,9 @@ export default function Sidebar({ onPageChange }) {
 					</button>
 				</li>
       </ul>
+      <button onClick={toggleSidebar} id='sidebar-toggle' aria-label='Toggle the sidebar' aria-expanded={isExpanded}>
+        {isExpanded ? <IconChevronLeft/> : <IconChevronRight/>}
+      </button>
       <div id='focus-hint' hidden>Press tab to move to the tab content</div>
 		</nav>
 	)

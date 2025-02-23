@@ -75,34 +75,3 @@ ul, ol {
   transform: scale(1.6);
   margin: 0.5rem 0;
 }
-
-table {
-  width: 100%;
-  border-spacing: 0;
-}
-
-th {
-  text-align: left;
-  padding: 1rem;
-}
-
-td {
-  padding: 1rem;
-  border-bottom: 2px solid #eee;
-}
-
-tr:hover {
-  background-color: #fafafa;
-}
-
-table tr:first-child th {
-  background-color: #eee;
-}
-
-table tr:first-child th:first-child {
-  border-start-start-radius: 12px;
-}
-
-table tr:last-child th:last-child {
-  border-start-end-radius: 12px;
-}

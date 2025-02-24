@@ -59,6 +59,6 @@ export default function Modal({ open, title, width = 400, onClose, footerButtons
       <div className="modal-content">
         {children}
       </div>
-      { footerButtons ? <FooterButtons buttons={footerButtons}/> : null}
+      { footerButtons && <FooterButtons buttons={footerButtons}/>}
   </dialog>, document.getElementById('modal'))
 }

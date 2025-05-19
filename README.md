@@ -1,5 +1,17 @@
 # Personal Finance Web App
 
+## Desktop Design
+![Project Preview](screenshots/desktop_view.png)
+
+
+## Tablet Design
+![Project Preview](screenshots/tablet_view.png)
+
+
+## Mobile Design
+![Project Preview](screenshots/mobile_view.png)
+
+
   
 
 ## Installation

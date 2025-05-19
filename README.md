@@ -1,4 +1,4 @@
-# Web Programming Project - Personal Finance App
+# Personal Finance Web App
 
   
 
@@ -12,7 +12,7 @@ To install and set up the project, follow these steps:
 
 ```sh
 
-git clone https://github.com/BahadurNUU/My-WP-Project.git
+git clone https://github.com/Bahadurshax/Personal-Finance-App.git
 
 ```
 
@@ -20,7 +20,7 @@ git clone https://github.com/BahadurNUU/My-WP-Project.git
 
 ```sh
 
-cd WP-Project-1
+cd Personal-Finance-App
 
 ```
 
